@@ -43,8 +43,7 @@ O projeto é composto por:
 
 ## Demonstração
 
-Vídeo explicativo do funcionamento da ALU:
-(INSIRA AQUI O LINK DO SEU VÍDEO)
+[Vídeo explicativo do funcionamento da ALU](https://drive.google.com/file/d/1Su9SnUXl8UUtmjkpUgPXIMOIgQJM5NH6/view?usp=sharing)
 
 ---
 

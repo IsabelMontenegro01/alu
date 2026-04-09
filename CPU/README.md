@@ -12,7 +12,7 @@ A CPU é responsável por executar instruções básicas, realizando o ciclo de 
 
 <div align="center">
 <sub>Figura 01 - CPU 8 bits</sub>
-<img src="./imagens/cpu8bits.svg" width="100%">
+<img src="../imagens/cpu8bits.svg" width="100%">
 <sup>Fonte: Material produzido pelos autores (2026)</sup>
 </div>
 <br>

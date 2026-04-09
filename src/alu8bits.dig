@@ -380,11 +380,6 @@
       <pos x="-5060" y="-3600"/>
     </visualElement>
     <visualElement>
-      <elementName>subtrator.dig</elementName>
-      <elementAttributes/>
-      <pos x="-5060" y="-3440"/>
-    </visualElement>
-    <visualElement>
       <elementName>multiplicador.dig</elementName>
       <elementAttributes/>
       <pos x="-5060" y="-3280"/>
@@ -940,6 +935,11 @@
         </entry>
       </elementAttributes>
       <pos x="-5480" y="-3780"/>
+    </visualElement>
+    <visualElement>
+      <elementName>subtrator.dig</elementName>
+      <elementAttributes/>
+      <pos x="-5060" y="-3440"/>
     </visualElement>
   </visualElements>
   <wires>

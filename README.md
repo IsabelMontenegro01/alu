@@ -69,7 +69,7 @@ A explicação detalhada do funcionamento de cada circuito, otimizações e inte
 
 [Vídeo 1](https://drive.google.com/file/d/1Su9SnUXl8UUtmjkpUgPXIMOIgQJM5NH6/view?usp=sharing)
 
-[Vídeo 2](COLE_AQUI_O_LINK_DO_VIDEO_2)
+[Vídeo 2](https://drive.google.com/file/d/1qSW8iyrVbh2PnLbf43-53MbGMz44mmui/view?usp=drive_link)
 
 ---
 

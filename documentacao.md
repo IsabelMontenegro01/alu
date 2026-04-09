@@ -72,5 +72,97 @@ O circuito de **Shift Lógico** realiza o deslocamento de bits para a esquerda o
 * **Descarte:** Os bits deslocados para fora do barramento de 8 bits são descartados.
 
 
+---
+
+# Documentação dos Circuitos — Parte 2
+
+## Circuitos Otimizados
+
+Durante o desenvolvimento do projeto, alguns circuitos foram revisados e otimizados com o objetivo de melhorar a organização, reutilização e funcionamento dentro da CPU.
+
+* **Somador:** foi refeito utilizando um componente modular de 1 bit já pronto (`somador.dig`), evitando a repetição manual de oito estruturas iguais.
+* **Subtrator:** também foi refeito seguindo a mesma lógica modular do somador, aproveitando melhor a reutilização de componentes.
+* **Shift:** inicialmente havia apenas um circuito para ambas direções, porém isso dificultou a integração na ALU e na CPU. Por isso, foi separado em dois módulos: `shift_dir.dig` e `shift_esq.dig`, facilitando o controle e a implementação.
+* **Multiplicador:** foi refeito mantendo a mesma lógica de funcionamento, porém utilizando **túneis**, o que reduziu a repetição desnecessária de conexões e melhorou a legibilidade do circuito.
+
+---
+
+## Operações Acrescentadas Tardiamente
+
+### Divisor de 8 bits
+
+O divisor de 8 bits foi implementado utilizando o método de **subtração restaurativa**, uma técnica clássica de divisão binária.
+
+### Funcionamento
+
+O processo ocorre de forma iterativa e pode ser resumido nos seguintes passos:
+
+1. O dividendo é carregado em um registrador (ou barramento principal).
+2. O divisor é alinhado à esquerda em relação ao dividendo.
+3. A cada etapa:
+
+   * É realizada uma subtração entre o valor atual e o divisor.
+   * Se o resultado for **positivo ou zero**, o bit do quociente recebe **1**.
+   * Se o resultado for **negativo**, o valor original é **restaurado** (por isso o nome “restaurativo”) e o bit do quociente recebe **0**.
+4. O divisor é deslocado para a direita a cada iteração.
+5. O processo continua até que todos os bits tenham sido processados.
+
+### Componentes utilizados
+
+* Subtrator (reaproveitando o circuito já desenvolvido)
+* Registradores (implícitos na estrutura do barramento)
+* Shift (para alinhamento do divisor)
+* Lógica de controle (para decisão entre restaurar ou manter o resultado)
+
+Ao final:
+
+* O resultado da divisão gera o **quociente**
+* O valor restante corresponde ao **resto**
+
+---
+
+### ALU (Unidade Lógica e Aritmética)
+
+A ALU foi projetada como o bloco central da CPU, integrando todas as operações desenvolvidas anteriormente em um único circuito.
+
+### Operações suportadas
+
+A ALU é capaz de executar:
+
+* Soma
+* Subtração
+* Multiplicação
+* Divisão
+* Shift à esquerda
+* Shift à direita
+
+### Estrutura e Funcionamento
+
+Cada operação é implementada como um módulo independente dentro da ALU. As entradas (operandos) são compartilhadas entre todos os módulos, e cada um produz sua saída simultaneamente.
+
+Para selecionar qual operação será utilizada, foi empregado um **seletor (multiplexador)**.
+
+### Papel do seletor (MUX)
+
+O seletor é responsável por:
+
+* Receber todas as saídas das operações (somador, subtrator, multiplicador, divisor e shifts)
+* Escolher **apenas uma saída** com base em sinais de controle (opcode)
+* Encaminhar essa saída para o barramento principal da CPU
+
+Ou seja, mesmo que todas as operações sejam calculadas internamente, apenas o resultado da operação selecionada é utilizado.
+
+### Integração dos componentes
+
+* Os operandos A e B são distribuídos para todos os blocos
+* O sinal de controle define a operação ativa
+* O multiplexador seleciona o resultado correto
+* O resultado final é enviado para o acumulador (AC) ou barramento de saída
+
+### Observações
+
+* O uso de módulos separados facilitou a manutenção e testes individuais
+* A utilização de túneis e componentes reutilizáveis melhorou significativamente a organização do circuito
+* A separação dos shifts em dois módulos simplificou o controle dentro da ALU
 
 ---

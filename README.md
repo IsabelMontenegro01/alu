@@ -1,7 +1,3 @@
-Perfeito — aqui está o **README reescrito**, já com a seção da imagem bem posicionada e mantendo tudo objetivo 👇
-
----
-
 # ALU de 8 bits
 
 ## Descrição

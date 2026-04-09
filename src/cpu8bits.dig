@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes/>
+  <visualElements>
+    <visualElement>
+      <elementName>contador_de_anel4bits.dig</elementName>
+      <elementAttributes/>
+      <pos x="260" y="-320"/>
+    </visualElement>
+    <visualElement>
+      <elementName>alu8bits.dig</elementName>
+      <elementAttributes/>
+      <pos x="740" y="640"/>
+    </visualElement>
+    <visualElement>
+      <elementName>contador4bits.dig</elementName>
+      <elementAttributes/>
+      <pos x="-200" y="260"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Driver</elementName>
+      <elementAttributes/>
+      <pos x="60" y="280"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="-140" y="280"/>
+      <p2 x="-80" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="-80" y="280"/>
+      <p2 x="40" y="280"/>
+    </wire>
+    <wire>
+      <p1 x="-80" y="180"/>
+      <p2 x="-80" y="280"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>
